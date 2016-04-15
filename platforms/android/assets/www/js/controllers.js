@@ -101,7 +101,7 @@ SampleApp
              $cordovaOauth.facebook("777797839022496", ["email"]).then(function(result) { 
                 $localStorage.accessToken = result.access_token;
                 $localStorage.provider = 'facebook'
-                 $state.go("app.profile");
+                 $state.go("app.fbprofile");
             }, function(error) {
                  alert("Error -> " + error);
                   $state.go("app.login");
@@ -156,7 +156,7 @@ SampleApp
     }else if ($localStorage.provider == 'facebook'){
         $scope.init = function() {
             if($localStorage.hasOwnProperty("accessToken") === true) {
-                $http.get('https://graph.facebook.com/v2.3/me', { params: { access_token: $localStorage.accessToken, ffields: "id,name,gender,location,website,picture,relationship_status", format: "json" }}).then(function(result) {
+                $http.get('https://graph.facebook.com/v2.3/me', { params: { access_token: $localStorage.accessToken}}).then(function(result) {
                     $scope.profileData = result.data;
                     $scope.login = false;
                     $scope.logout = true;

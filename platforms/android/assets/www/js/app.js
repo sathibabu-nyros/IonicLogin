@@ -74,6 +74,19 @@ var SampleApp = angular.module('starter', ['ionic', 'ionic-material', 'ionMdInpu
             }
         }
     })   
+    .state('app.fbprofile', {
+        url: '/fbprofile',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/fbprofile.html',
+                controller: 'ProfileCtrl'
+            },
+            'fabContent': {
+                template: '',
+               
+            }
+        }
+    })   
     ;
 
     // if none of the above states are matched, use this as the fallback
