@@ -11,11 +11,6 @@ SampleApp
     $scope.isExpanded = false;
     $scope.hasHeaderFabLeft = false;
     $scope.hasHeaderFabRight = false;
-    $localStorage.provider = '';
-    $localStorage.accessToken = '';
-    $scope.login = true;
-    $scope.logout = false;
-
     var navIcons = document.getElementsByClassName('ion-navicon');
     for (var i = 0; i < navIcons.length; i++) {
         navIcons.addEventListener('click', function() {
@@ -93,31 +88,7 @@ SampleApp
     };
 })
 
-.controller('SignupCtrl', function($scope, $timeout, $stateParams, ionicMaterialInk,$state,$http) {
-    $scope.$parent.clearFabs();
 
-     $scope.authorization = {
-        username: '',
-        email: '',
-        password : ''
-      };  
-
-     $scope.data = {};
-     
-     var link = 'http://localhost/api.php';       
-
-
-     $scope.Signup = function(form) {
-        if(form.$valid) {
-           
-        }
-      };  
-
-    $timeout(function() {
-        $scope.$parent.hideHeader();
-    }, 0);
-    ionicMaterialInk.displayEffect();
-})
 
 .controller('LoginCtrl', function($scope, $timeout, $stateParams, ionicMaterialInk,$state,$http,UserSession,$location,$ionicPopup,$cordovaOauth,$localStorage) {
     $scope.$parent.clearFabs();
@@ -168,15 +139,11 @@ SampleApp
         $scope.profileData = {};
     }
    
-
-   
     if ($localStorage.provider == 'google'){      
         $scope.init = function() {
             if($localStorage.hasOwnProperty("accessToken") === true) {
                 $http.get('https://www.googleapis.com/oauth2/v1/userinfo', { params: { access_token: $localStorage.accessToken}}).then(function(result) {
-                    $scope.profileData = result.data;
-                    $scope.login = false;
-                    $scope.logout = true;
+                    $scope.profileData = result.data; 
                 }, function(error) {
                     alert("There was a problem getting your profile.  Check the logs for details."+ error);
                     // console.log(error);
@@ -209,90 +176,3 @@ SampleApp
 
 });
 
-// .controller('ListingCtrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk,$http) {
-//     $scope.$parent.showHeader();
-//     $scope.$parent.clearFabs();
-//     $scope.$parent.setHeaderFab('right');
-
-//     $scope.products = [];
-
-
-//       $scope.rating = {};
-//       $scope.rating.rate = 3;
-//       $scope.rating.max = 5;
-
-
-//      $http.get("http://localhost:3030/api/products").success(function (data) {
-//             $scope.totalItems=data.length;
-//             angular.forEach(data,function (key) {
-//                 $scope.products.push(key);
-//             });
-//         });
-
-
-//     $timeout(function() {
-//         ionicMaterialMotion.fadeSlideIn({
-//             selector: '.animate-fade-slide-in .item'
-//         });
-//     }, 200);
-
-//     // Activate ink for controller
-//     ionicMaterialInk.displayEffect();
-// })
-// .controller('ListingviewCtrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk,$ionicModal,$http,ratingConfig) {
-//     $scope.$parent.showHeader();
-//     $scope.$parent.clearFabs();
-//     $scope.isExpanded = false;
-//     $scope.$parent.setExpanded(false);
-//     $scope.$parent.setHeaderFab(false);
-
-//     $scope.product = []
-
-   
-
-//           $scope.productreviews = [];
-//           $http.get('http://localhost:3030/api/get_reviews/'+$stateParams.listingsId).success(function (data) {
-//                        angular.forEach(data,function (key) {
-//                            $scope.productreviews.push(key);
-//                        });
-//                      });
-
-
-//      $http.get("http://localhost:3030/api/products/"+$stateParams.listingsId).success(function (data) {
-//                 $scope.product= data ;     
-          
-//         });
-
-
-//     // Set Motion
-//        $timeout(function() {
-//         ionicMaterialMotion.fadeSlideIn({
-//             selector: '.animate-fade-slide-in .item'
-//         });
-//     }, 200);
-
-//     // Activate ink for controller
-//     ionicMaterialInk.displayEffect();   
-
-// })
-
-// .controller('GalleryCtrl', function($scope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion) {
-//     $scope.$parent.showHeader();
-//     $scope.$parent.clearFabs();
-//     // $scope.isExpanded = true;
-//     // $scope.$parent.setExpanded(true);
-//     $scope.$parent.setHeaderFab('right');
-
-
-//      $timeout(function() {
-//         ionicMaterialMotion.fadeSlideIn({
-//             selector: '.animate-fade-slide-in .item'
-//         });
-//     }, 200);
-
-
-//     // Activate ink for controller
-//     ionicMaterialInk.displayEffect();
-
- 
-// });

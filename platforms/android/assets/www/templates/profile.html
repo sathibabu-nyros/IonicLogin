@@ -1,8 +1,8 @@
 <ion-view view-title="Profile" ng-init="init()">
-    <ion-content class="animate-fade-slide-in">
-        <div class="list card">
+    <ion-content>
+       <div class="list card">     
             <div class="item item-avatar">
-                <img ng-src="{{profileData.picture}}">
+               <img ng-src="{{profileData.picture}}">
                 <h2>{{profileData.name}}</h2>
                 <p>{{profileData.email}}</p>
                 <p>{{profileData.id}}</p>
@@ -16,9 +16,12 @@
                 {{profileData.family_name}}
             </a>
             <a href="#" class="item item-icon-left">
-                <i class="icon ion-man"></i>
+                <i class="icon ion-male"></i>
                 {{profileData.gender}}
             </a>
         </div>
     </ion-content>
 </ion-view>
+
+
+

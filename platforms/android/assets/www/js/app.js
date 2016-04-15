@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 var SampleApp = angular.module('starter', ['ionic', 'ionic-material', 'ionMdInput', 'ngMessages','truncate','ionic.rating', 'ngResource','ngCordova','ngCordovaOauth','ngStorage'])
 
-.run(function($ionicPlatform,$rootScope,$localStorage) {
+.run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -19,10 +19,6 @@ var SampleApp = angular.module('starter', ['ionic', 'ionic-material', 'ionMdInpu
         }
     });
 
-    $rootScope.Logout = function() {     
-     delete $localStorage.accessToken;
-     delete  $localStorage.provider;
-    }
 })
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider,$httpProvider) {
@@ -48,23 +44,7 @@ var SampleApp = angular.module('starter', ['ionic', 'ionic-material', 'ionMdInpu
         controller: 'AppCtrl'
     })    
 
-    .state('app.gallery', {
-        url: '/gallery',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/gallery.html',
-                controller: 'GalleryCtrl'
-            },
-            'fabContent': {
-                template: '',
-                controller: function ($timeout) {
-                    $timeout(function () {
-                        document.getElementById('fab-gallery').classList.toggle('on');
-                    }, 600);
-                }
-            }
-        }
-    })
+  
 
     .state('app.login', {
         url: '/login',
@@ -79,18 +59,7 @@ var SampleApp = angular.module('starter', ['ionic', 'ionic-material', 'ionMdInpu
         }
     })
 
-     .state('app.signup', {
-        url: '/signup',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/signup.html',
-                controller: 'SignupCtrl'
-            },
-            'fabContent': {
-                template: ''
-            }
-        }
-    })
+     
 
     .state('app.profile', {
         url: '/profile',
@@ -104,35 +73,7 @@ var SampleApp = angular.module('starter', ['ionic', 'ionic-material', 'ionMdInpu
                
             }
         }
-    })
-
-
-
-    .state('app.listings', {
-        url: '/listings',
-        cache: false,
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/listings.html',
-                controller: 'ListingCtrl'
-            },
-            'fabContent': {
-                template: ''
-            }
-        },      
-    })
-     .state('app.listingview', {
-        url: '/listings/:listingsId',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/listingview.html',
-                controller: 'ListingviewCtrl'
-            },
-            'fabContent': {
-                template: ''
-            }
-        }
-    })
+    })   
     ;
 
     // if none of the above states are matched, use this as the fallback

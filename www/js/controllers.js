@@ -11,11 +11,6 @@ SampleApp
     $scope.isExpanded = false;
     $scope.hasHeaderFabLeft = false;
     $scope.hasHeaderFabRight = false;
-    $localStorage.provider = '';
-    $localStorage.accessToken = '';
-    $scope.login = true;
-    $scope.logout = false;
-
     var navIcons = document.getElementsByClassName('ion-navicon');
     for (var i = 0; i < navIcons.length; i++) {
         navIcons.addEventListener('click', function() {
@@ -144,13 +139,11 @@ SampleApp
         $scope.profileData = {};
     }
    
-
-   
     if ($localStorage.provider == 'google'){      
         $scope.init = function() {
             if($localStorage.hasOwnProperty("accessToken") === true) {
                 $http.get('https://www.googleapis.com/oauth2/v1/userinfo', { params: { access_token: $localStorage.accessToken}}).then(function(result) {
-                    $scope.profileData = result.data;                   
+                    $scope.profileData = result.data; 
                 }, function(error) {
                     alert("There was a problem getting your profile.  Check the logs for details."+ error);
                     // console.log(error);
