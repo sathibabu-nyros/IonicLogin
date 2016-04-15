@@ -1,0 +1,50 @@
+<ion-view view-title="SignUp" align-title="left">
+    <ion-content style="background: url(img/login.jpg) center; background-size: cover;">
+        <div class="hero no-header flat">
+            <div class="content">
+                <div class="app-icon"></div>
+                <h1>Sample App</h1>
+            </div>
+        </div>
+        <form name="userForm" novalidate="" ng-submit="Signup(userForm)">
+        <div class="list">
+            <ion-md-input placeholder="Username" highlight-color="balanced" type="text" name="username" ng-model="data.username" ng-required="true" ng-minlength="5"></ion-md-input>
+
+            <div class="form-errors" ng-messages="userForm.username.$error" ng-messages-include="templates/form-errors.html">  
+           
+
+            <ion-md-input placeholder="Email" highlight-color="balanced" name= "email" type="email" ng-model="data.email" ng-required="true" ></ion-md-input>
+
+             <div class="form-errors" ng-messages="userForm.email.$error" ng-messages-include="templates/form-errors.html">  
+        
+
+            <ion-md-input placeholder="Password" highlight-color="energized" name="password" type="password" ng-model="data.password" ng-required="true" ng-minlength="5"></ion-md-input>
+
+             <div class="form-errors" ng-messages="userForm.password.$error" ng-messages-include="templates/form-errors.html">  
+
+        </div>
+        <div class="padding">           
+            <button  class="button button-full button-positive ink" type="submit" ng-disabled="userForm.$invalid">Register</button>
+            <button  ui-sref="app.login" class="button button-full button-assertive ink">Login</button>
+        </div>
+         </form> 
+    </ion-content>
+</ion-view>
+
+<script id="templates/form-errors.html" type="text/ng-template">  
+  <div class="form-error" ng-message="required">This field is required.</div> 
+  <div ng-message="email" class="form-error">Your field has an invalid email address</div>
+  <div ng-message="minlength" class="form-error">Your field is too short</div>
+</script>  
+
+<style type="text/css">
+
+/** Styling for the error text and container **/
+.form-errors {
+  margin: 5px 0
+}
+.form-error {
+  padding: 2px 0 2px 16px;
+  color: #EF473A;
+}
+</style>

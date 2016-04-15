@@ -1,0 +1,41 @@
+<div class="ionic login " style="background-image: url('img/login.jpg');" ng-app="login">
+        <div class="hero no-header flat">
+            <div class="content">
+                <i class="ion-map icon hero-icon royal-bg"></i>
+                <h1>Sample App</h1>
+            </div>
+        </div>
+      <!--   <form name="loginForm" novalidate="" ng-submit="Login(loginForm)">
+            <div class="list">
+                <label class="item item-input item-md-label" placeholder="Username" highlight-color="balanced" type="text"><input type="text" name="email" ng-model="data.email" ng-required="true" class="used"><span class="input-label">Username</span><div class="highlight highlight-balanced"></div></label>
+                <label class="item item-input item-md-label" placeholder="Password" highlight-color="energized" type="password"><input type="password" name="password" ng-model="data.password" ng-required="true" class="used"><span class="input-label">Password</span><div class="highlight highlight-energized"></div></label>
+                </div>
+                   <div class="padding">
+                    <button class="button button-block button-positive waves-effect waves-button waves-light" ng-disabled="loginForm.$invalid" type="submit">Login</button>
+            </div>
+        </form> -->
+        <div class="button-bar">
+            <button class="button button-small button-outline button-assertive light-bg icon-left ion-social-google waves-effect waves-button waves-light" ng-click="googleLogin()">Google+</button>
+        </div>
+        <div class="button-bar">
+            <button class="button button-small button-outline button-positive light-bg icon-left ion-social-facebook waves-effect waves-button waves-light" ng-click="facebookLogin()">Facebook</button>
+        </div>
+    </div>
+<script id="templates/form-errors.html" type="text/ng-template">  
+  <div class="form-error" ng-message="required">This field is required.</div>    
+</script>  
+
+<style type="text/css">
+
+/** Styling for the error text and container **/
+.form-errors {
+  margin: 5px 0
+}
+.form-error {
+  padding: 2px 0 2px 16px;
+  color: #EF473A;
+}
+.ionic.login .light-bg {
+    background-color: #fff;
+}
+</style>

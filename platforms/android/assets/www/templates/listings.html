@@ -1,0 +1,46 @@
+
+<ion-view view-title="Products">
+
+    <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in">
+
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Search">
+        </label>
+
+    
+            <div class="list" >
+                <a class="item item-avatar" ng-repeat="product in products" href="#/app/listings/{{product.id}}">
+                    <img ng-src="http://localhost:3030/{{product.avatar_content_type}}">
+                    <h2>{{product.name}}</h2>
+                    <p>Price: <label>&nbsp;{{product.cost | currency}}</label></p>
+                   <label>Brand: {{product.brand}}</label>
+                   <rating ng-model="rating.rate" max="rating.max"></rating>
+                </a>
+                 
+            </div>
+               
+       
+    </ion-content>
+</ion-view>
+<style type="text/css">
+    .item-title{
+        padding-bottom: 0px !important;
+    }
+    .item-body{
+        padding-top: 5px !important;
+    }
+    label .item-input{
+      border: 1px solid #ccc;
+      /*margin-top: 10px !important;*/
+    }
+    ul.rating li {
+    display: inline;
+    border: 0px;
+    background: none;
+    padding: 5px 10px;
+  }
+  ul.rating li i {
+    font-size: 20px;
+  }
+</style>
